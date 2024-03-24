@@ -102,87 +102,87 @@
 
 // classes
 
-class Person implements IPerson{
-    name: string;
-    age: number;
-
-    // this nedir?
-    // super nedir?
-    constructor(name: string, age: number) {
-        this.name = name;
-        this.age = age;
-    }
-
-    greet(): string {
-        return "Hello " + this.name;
-    }
-    getInfo(): string {
-        return "Name: " + this.name + " Age: " + this.age;
-    }
-    getPersonAge(personName :string): string {
-        return ` ${personName} is ${this.age} years old.`;
-    }
-}
-
-let person1: Person = new Person("John", 25);
-
-// console.log(person1.greet());
-// console.log(person1.getInfo());
-class Student extends Person {
-    studentNumber: number;
-
-    constructor(name: string, age: number, studentNumber: number) {
-        super(name, age);
-        this.studentNumber = studentNumber;
-    }
-
-
-    greet(): string {
-        return "Hello " + this.name + " " + this.studentNumber ;
-    }
-
-    // override
-    getInfo(): string {
-        return "Name: " + this.name + " Age: " + this.age + " Student Number: " + this.studentNumber;
-    }
-
-
-}
-
-let student1: Person  = new Student("John", 25, 12345);
-console.log(Math.random());
-// console.log(student1.getInfo());
-console.log(student1.getPersonAge("Alican"));
-
-interface IPerson {
-    name: string;
-    age: number;
-    greet(): string;
-    getInfo(): string;
-}
-
-// override ve overload nedir?
-// polimorfizm nedir?
-
-class Doctor implements IPerson {
-
-    department: string;
-    name: string;
-    age: number;
-    constructor(department: string, name: string, age: number) {
-        this.name = name;
-        this.age = age;
-        this.department = department;
-    }
-      greet(): string {
-            return "Hello " + this.name + " " + this.department;
-        }
-    getInfo(): string {
-        return "Name: " + this.name + " Age: " + this.age;
-    }
-
-}
-
+// class Person implements IPerson{
+//     name: string;
+//     age: number;
+//
+//     // this nedir?
+//     // super nedir?
+//     constructor(name: string, age: number) {
+//         this.name = name;
+//         this.age = age;
+//     }
+//
+//     greet(): string {
+//         return "Hello " + this.name;
+//     }
+//     getInfo(): string {
+//         return "Name: " + this.name + " Age: " + this.age;
+//     }
+//     getPersonAge(personName :string): string {
+//         return ` ${personName} is ${this.age} years old.`;
+//     }
+// }
+//
+// let person1: Person = new Person("John", 25);
+//
+// // console.log(person1.greet());
+// // console.log(person1.getInfo());
+// class Student extends Person {
+//     studentNumber: number;
+//
+//     constructor(name: string, age: number, studentNumber: number) {
+//         super(name, age);
+//         this.studentNumber = studentNumber;
+//     }
+//
+//
+//     greet(): string {
+//         return "Hello " + this.name + " " + this.studentNumber ;
+//     }
+//
+//     // override
+//     getInfo(): string {
+//         return "Name: " + this.name + " Age: " + this.age + " Student Number: " + this.studentNumber;
+//     }
+//
+//
+// }
+//
+// let student1: Person  = new Student("John", 25, 12345);
+// console.log(Math.random());
+// // console.log(student1.getInfo());
+// console.log(student1.getPersonAge("Alican"));
+//
+// interface IPerson {
+//     name: string;
+//     age: number;
+//     greet(): string;
+//     getInfo(): string;
+// }
+//
+// // override ve overload nedir?
+// // polimorfizm nedir?
+//
+// class Doctor implements IPerson {
+//
+//     department: string;
+//     name: string;
+//     age: number;
+//     constructor(department: string, name: string, age: number) {
+//         this.name = name;
+//         this.age = age;
+//         this.department = department;
+//     }
+//       greet(): string {
+//             return "Hello " + this.name + " " + this.department;
+//         }
+//     getInfo(): string {
+//         return "Name: " + this.name + " Age: " + this.age;
+//     }
+//
+// }
+//
 
 
 // class MyMathLib implements  Math{
@@ -320,3 +320,78 @@ class Doctor implements IPerson {
 // postService adında bir class oluşturunuz.
 // getPosts metodu oluşturunuz.
 
+
+interface IPost {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
+}
+
+class Post implements IPost {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
+
+    constructor(userId: number, id: number, title: string, body: string) {
+        this.userId = userId;
+        this.id = id;
+        this.title = title;
+        this.body = body;
+    }
+}
+
+
+// const post1 : IPost = {
+//     userId: 1,
+//     id: 1,
+//     title: "titasdasdle",
+//     body: "basdasdody"
+// }
+//
+// const post2 : Post = new Post(1,1,"title","body");
+//
+// console.log(post1)
+// console.log(post2)
+//
+// const post2 : IPost = {
+//     userId: 1,
+//     id: 1,
+//     title: "title",
+//     body: "body"
+// }
+//
+// const postArr : IPost[] = [post1,post2];
+//
+// console.log(postArr);
+class PostService {
+    async getPosts() {
+        let data: IPost[];
+        let response = await fetch('https://jsonplaceholder.typicode.com/posts');
+        let myJsonData: any = await response.json();
+        data = this.convertToPosts(myJsonData);
+        console.log(data);
+    }
+
+
+    convertToPosts = (data: any): Post[] => {
+        return data.map((post: IPost) => {
+            return new Post(post.userId, post.id, post.title, post.body);
+        })
+    }
+
+    async getPostById(id: number) {
+        let response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+        let data: IPost [];
+        let myJsonData: any = await response.json();
+        data = this.convertToPosts(myJsonData);
+        console.log(data);
+    }
+
+}
+
+
+let postService = new PostService();
+// postService.getPosts();
+postService.getPostById(1);

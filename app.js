@@ -99,207 +99,119 @@
 //
 // let result: number = calculateAvarage(50, 70);
 //
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-// classes
-var Person = /** @class */ (function () {
-    // this nedir?
-    // super nedir?
-    function Person(name, age) {
-        this.name = name;
-        this.age = age;
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
-    Person.prototype.greet = function () {
-        return "Hello " + this.name;
-    };
-    Person.prototype.getInfo = function () {
-        return "Name: " + this.name + " Age: " + this.age;
-    };
-    Person.prototype.getPersonAge = function (personName) {
-        return " ".concat(personName, " is ").concat(this.age, " years old.");
-    };
-    return Person;
+};
+var Post = /** @class */ (function () {
+    function Post(userId, id, title, body) {
+        this.userId = userId;
+        this.id = id;
+        this.title = title;
+        this.body = body;
+    }
+    return Post;
 }());
-var person1 = new Person("John", 25);
-// console.log(person1.greet());
-// console.log(person1.getInfo());
-var Student = /** @class */ (function (_super) {
-    __extends(Student, _super);
-    function Student(name, age, studentNumber) {
-        var _this = _super.call(this, name, age) || this;
-        _this.studentNumber = studentNumber;
-        return _this;
-    }
-    Student.prototype.greet = function () {
-        return "Hello " + this.name + " " + this.studentNumber;
-    };
-    // override
-    Student.prototype.getInfo = function () {
-        return "Name: " + this.name + " Age: " + this.age + " Student Number: " + this.studentNumber;
-    };
-    return Student;
-}(Person));
-var student1 = new Student("John", 25, 12345);
-console.log(Math.random());
-// console.log(student1.getInfo());
-console.log(student1.getPersonAge("Alican"));
-// override ve overload nedir?
-// polimorfizm nedir?
-var Doctor = /** @class */ (function () {
-    function Doctor(department, name, age) {
-        this.name = name;
-        this.age = age;
-        this.department = department;
-    }
-    Doctor.prototype.greet = function () {
-        return "Hello " + this.name + " " + this.department;
-    };
-    Doctor.prototype.getInfo = function () {
-        return "Name: " + this.name + " Age: " + this.age;
-    };
-    return Doctor;
-}());
-// class MyMathLib implements  Math{
-//
-// E: number;
-//     LN2: number;
-//     LN10: number;
-//     LOG2E: number;
-//     LOG10E: number;
-//     PI: number;
-//     SQRT1_2: number;
-//     SQRT2: number;
-//     abs(x: number): number {
-//         return Math.abs(x);
-//     }
-//     acos(x: number): number {
-//         return Math.acos(x);
-//     }
-//     acosh(x: number): number {
-//         return Math.acosh(x);
-//     }
-//     asin(x: number): number {
-//         return Math.asin(x);
-//     }
-//     asinh(x: number): number {
-//         return Math.asinh(x);
-//     }
-//     atan(x: number): number {
-//         return Math.atan(x);
-//     }
-//     atan2(y: number, x: number): number {
-//         return Math.atan2(y, x);
-//     }
-//     atanh(x: number): number {
-//         return Math.atanh(x);
-//     }
-//     cbrt(x: number): number {
-//         return Math.cbrt(x);
-//     }
-//     ceil(x: number): number {
-//         return Math.ceil(x);
-//     }
-//     clz32(x: number): number {
-//         return Math.clz32(x);
-//     }
-//     cos(x: number): number {
-//         return Math.cos(x);
-//     }
-//     cosh(x: number): number {
-//         return Math.cosh(x);
-//     }
-//     exp(x: number): number {
-//         return Math.exp(x);
-//     }
-//     expm1(x: number): number {
-//         return Math.expm1(x);
-//     }
-//     floor(x: number): number {
-//         return Math.floor(x);
-//     }
-//     fround(x: number): number {
-//         return Math.fround(x);
-//     }
-//
-//
-//     imul(a: number, b: number): number {
-//         return Math.imul(a, b);
-//     }
-//     log(x: number): number {
-//         return Math.log(x);
-//     }
-//     log1p(x: number): number {
-//         return Math.log1p(x);
-//     }
-//     log10(x: number): number {
-//         return Math.log10(x);
-//     }
-//     log2(x: number): number {
-//         return Math.log2(x);
-//     }
-//     max(...values: number[]): number {
-//         return Math.max(...values);
-//     }
-//     min(...values: number[]): number {
-//         return Math.min(...values);
-//     }
-//     pow(x: number, y: number): number {
-//         return Math.pow(x, y);
-//     }
-//     random(): number {
-//         return Math.random();
-//     }
-//     round(x: number): number {
-//         return Math.round(x);
-//     }
-//     sign(x: number): number {
-//         return Math.sign(x);
-//     }
-//     sin(x: number): number {
-//         return Math.sin(x);
-//     }
-//     sinh(x: number): number {
-//         return Math.sinh(x);
-//     }
-//     sqrt(x: number): number {
-//         return Math.sqrt(x);
-//     }
-//     tan(x: number): number {
-//         return Math.tan(x);
-//     }
-//     tanh(x: number): number {
-//         return Math.tanh(x);
-//     }
-//     trunc(x: number): number {
-//         return Math.trunc(x);
-//     }
-//     hypot(...values): number {
-//         return Math.hypot(...values);
-//     }
-//
-//     generateRandomNumberByRange(range:number): number {
-//         return Math.random()*range;
-//     }
-//
-//
-//
+// const post1 : IPost = {
+//     userId: 1,
+//     id: 1,
+//     title: "titasdasdle",
+//     body: "basdasdody"
 // }
-// let myMath : MyMathLib = new MyMathLib();
-// console.log(Math.random()*300);
-// console.log(myMath.generateRandomNumberByRange(300));
-// TASKS json placeholder api kullanarak typescript ile get request yapınız.
-// post için bir interface oluşturunuz.
-// postService adında bir class oluşturunuz.
+//
+// const post2 : Post = new Post(1,1,"title","body");
+//
+// console.log(post1)
+// console.log(post2)
+//
+// const post2 : IPost = {
+//     userId: 1,
+//     id: 1,
+//     title: "title",
+//     body: "body"
+// }
+//
+// const postArr : IPost[] = [post1,post2];
+//
+// console.log(postArr);
+var PostService = /** @class */ (function () {
+    function PostService() {
+        this.convertToPosts = function (data) {
+            return data.map(function (post) {
+                return new Post(post.userId, post.id, post.title, post.body);
+            });
+        };
+    }
+    PostService.prototype.getPosts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var data, response, myJsonData;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, fetch('https://jsonplaceholder.typicode.com/posts')];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.json()];
+                    case 2:
+                        myJsonData = _a.sent();
+                        data = this.convertToPosts(myJsonData);
+                        console.log(data);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    PostService.prototype.getPostById = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response, data, myJsonData;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, fetch("https://jsonplaceholder.typicode.com/posts/".concat(id))];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.json()];
+                    case 2:
+                        myJsonData = _a.sent();
+                        data = this.convertToPosts(myJsonData);
+                        console.log(data);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return PostService;
+}());
+var postService = new PostService();
+// postService.getPosts();
+postService.getPostById(1);
