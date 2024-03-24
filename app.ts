@@ -313,3 +313,10 @@ class Doctor implements IPerson {
 // let myMath : MyMathLib = new MyMathLib();
 // console.log(Math.random()*300);
 // console.log(myMath.generateRandomNumberByRange(300));
+
+
+// TASKS json placeholder api kullanarak typescript ile get request yapınız.
+// post için bir interface oluşturunuz.
+// postService adında bir class oluşturunuz.
+// getPosts metodu oluşturunuz.
+

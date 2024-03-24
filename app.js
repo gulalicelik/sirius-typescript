@@ -172,131 +172,134 @@ var Doctor = /** @class */ (function () {
     };
     return Doctor;
 }());
-var MyMathLib = /** @class */ (function () {
-    function MyMathLib() {
-    }
-    MyMathLib.prototype.abs = function (x) {
-        return Math.abs(x);
-    };
-    MyMathLib.prototype.acos = function (x) {
-        return Math.acos(x);
-    };
-    MyMathLib.prototype.acosh = function (x) {
-        return Math.acosh(x);
-    };
-    MyMathLib.prototype.asin = function (x) {
-        return Math.asin(x);
-    };
-    MyMathLib.prototype.asinh = function (x) {
-        return Math.asinh(x);
-    };
-    MyMathLib.prototype.atan = function (x) {
-        return Math.atan(x);
-    };
-    MyMathLib.prototype.atan2 = function (y, x) {
-        return Math.atan2(y, x);
-    };
-    MyMathLib.prototype.atanh = function (x) {
-        return Math.atanh(x);
-    };
-    MyMathLib.prototype.cbrt = function (x) {
-        return Math.cbrt(x);
-    };
-    MyMathLib.prototype.ceil = function (x) {
-        return Math.ceil(x);
-    };
-    MyMathLib.prototype.clz32 = function (x) {
-        return Math.clz32(x);
-    };
-    MyMathLib.prototype.cos = function (x) {
-        return Math.cos(x);
-    };
-    MyMathLib.prototype.cosh = function (x) {
-        return Math.cosh(x);
-    };
-    MyMathLib.prototype.exp = function (x) {
-        return Math.exp(x);
-    };
-    MyMathLib.prototype.expm1 = function (x) {
-        return Math.expm1(x);
-    };
-    MyMathLib.prototype.floor = function (x) {
-        return Math.floor(x);
-    };
-    MyMathLib.prototype.fround = function (x) {
-        return Math.fround(x);
-    };
-    MyMathLib.prototype.imul = function (a, b) {
-        return Math.imul(a, b);
-    };
-    MyMathLib.prototype.log = function (x) {
-        return Math.log(x);
-    };
-    MyMathLib.prototype.log1p = function (x) {
-        return Math.log1p(x);
-    };
-    MyMathLib.prototype.log10 = function (x) {
-        return Math.log10(x);
-    };
-    MyMathLib.prototype.log2 = function (x) {
-        return Math.log2(x);
-    };
-    MyMathLib.prototype.max = function () {
-        var values = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            values[_i] = arguments[_i];
-        }
-        return Math.max.apply(Math, values);
-    };
-    MyMathLib.prototype.min = function () {
-        var values = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            values[_i] = arguments[_i];
-        }
-        return Math.min.apply(Math, values);
-    };
-    MyMathLib.prototype.pow = function (x, y) {
-        return Math.pow(x, y);
-    };
-    MyMathLib.prototype.random = function () {
-        return Math.random();
-    };
-    MyMathLib.prototype.round = function (x) {
-        return Math.round(x);
-    };
-    MyMathLib.prototype.sign = function (x) {
-        return Math.sign(x);
-    };
-    MyMathLib.prototype.sin = function (x) {
-        return Math.sin(x);
-    };
-    MyMathLib.prototype.sinh = function (x) {
-        return Math.sinh(x);
-    };
-    MyMathLib.prototype.sqrt = function (x) {
-        return Math.sqrt(x);
-    };
-    MyMathLib.prototype.tan = function (x) {
-        return Math.tan(x);
-    };
-    MyMathLib.prototype.tanh = function (x) {
-        return Math.tanh(x);
-    };
-    MyMathLib.prototype.trunc = function (x) {
-        return Math.trunc(x);
-    };
-    MyMathLib.prototype.hypot = function () {
-        var values = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            values[_i] = arguments[_i];
-        }
-        return Math.hypot.apply(Math, values);
-    };
-    MyMathLib.prototype.generateRandomNumberByRange = function (range) {
-        return Math.random() * range;
-    };
-    return MyMathLib;
-}());
-var myMath = new MyMathLib();
-console.log(Math.random() * 300);
-console.log(myMath.generateRandomNumberByRange(300));
+// class MyMathLib implements  Math{
+//
+// E: number;
+//     LN2: number;
+//     LN10: number;
+//     LOG2E: number;
+//     LOG10E: number;
+//     PI: number;
+//     SQRT1_2: number;
+//     SQRT2: number;
+//     abs(x: number): number {
+//         return Math.abs(x);
+//     }
+//     acos(x: number): number {
+//         return Math.acos(x);
+//     }
+//     acosh(x: number): number {
+//         return Math.acosh(x);
+//     }
+//     asin(x: number): number {
+//         return Math.asin(x);
+//     }
+//     asinh(x: number): number {
+//         return Math.asinh(x);
+//     }
+//     atan(x: number): number {
+//         return Math.atan(x);
+//     }
+//     atan2(y: number, x: number): number {
+//         return Math.atan2(y, x);
+//     }
+//     atanh(x: number): number {
+//         return Math.atanh(x);
+//     }
+//     cbrt(x: number): number {
+//         return Math.cbrt(x);
+//     }
+//     ceil(x: number): number {
+//         return Math.ceil(x);
+//     }
+//     clz32(x: number): number {
+//         return Math.clz32(x);
+//     }
+//     cos(x: number): number {
+//         return Math.cos(x);
+//     }
+//     cosh(x: number): number {
+//         return Math.cosh(x);
+//     }
+//     exp(x: number): number {
+//         return Math.exp(x);
+//     }
+//     expm1(x: number): number {
+//         return Math.expm1(x);
+//     }
+//     floor(x: number): number {
+//         return Math.floor(x);
+//     }
+//     fround(x: number): number {
+//         return Math.fround(x);
+//     }
+//
+//
+//     imul(a: number, b: number): number {
+//         return Math.imul(a, b);
+//     }
+//     log(x: number): number {
+//         return Math.log(x);
+//     }
+//     log1p(x: number): number {
+//         return Math.log1p(x);
+//     }
+//     log10(x: number): number {
+//         return Math.log10(x);
+//     }
+//     log2(x: number): number {
+//         return Math.log2(x);
+//     }
+//     max(...values: number[]): number {
+//         return Math.max(...values);
+//     }
+//     min(...values: number[]): number {
+//         return Math.min(...values);
+//     }
+//     pow(x: number, y: number): number {
+//         return Math.pow(x, y);
+//     }
+//     random(): number {
+//         return Math.random();
+//     }
+//     round(x: number): number {
+//         return Math.round(x);
+//     }
+//     sign(x: number): number {
+//         return Math.sign(x);
+//     }
+//     sin(x: number): number {
+//         return Math.sin(x);
+//     }
+//     sinh(x: number): number {
+//         return Math.sinh(x);
+//     }
+//     sqrt(x: number): number {
+//         return Math.sqrt(x);
+//     }
+//     tan(x: number): number {
+//         return Math.tan(x);
+//     }
+//     tanh(x: number): number {
+//         return Math.tanh(x);
+//     }
+//     trunc(x: number): number {
+//         return Math.trunc(x);
+//     }
+//     hypot(...values): number {
+//         return Math.hypot(...values);
+//     }
+//
+//     generateRandomNumberByRange(range:number): number {
+//         return Math.random()*range;
+//     }
+//
+//
+//
+// }
+// let myMath : MyMathLib = new MyMathLib();
+// console.log(Math.random()*300);
+// console.log(myMath.generateRandomNumberByRange(300));
+// TASKS json placeholder api kullanarak typescript ile get request yapınız.
+// post için bir interface oluşturunuz.
+// postService adında bir class oluşturunuz.
