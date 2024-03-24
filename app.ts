@@ -70,7 +70,6 @@ var person: [string, number] = ["John", 25];
 // person = [25, "John"]; // Error: Type 'number' is not assignable to type 'string'.
 
 // ts functions
-
 function calculateAvarage(vizeP: number, finalP: number): number {
     return (vizeP * 0.4) + (finalP * 0.6);
 }
@@ -86,7 +85,7 @@ function isEven(num: number): boolean {
 }
 
 function getStudentInfo(): string[] {
-    return ["John", "Doe", "25"];
+    return ["John", "Doe", "25",];
 }
 
 function getStudentInfo2(): [string, string, number] {
@@ -99,3 +98,46 @@ function logMessage(message: string): void {
 }
 
 let result: number = calculateAvarage(50, 70);
+
+
+// classes
+
+class Person {
+    name: string;
+    age: number;
+
+    // this nedir?
+    // super nedir?
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet(): string {
+        return "Hello " + this.name;
+    }
+}
+
+let person1: Person = new Person("John", 25);
+
+console.log(person1.greet());
+class Student extends Person {
+    studentNumber: number;
+
+    constructor(name: string, age: number, studentNumber: number) {
+        super(name, age);
+        this.studentNumber = studentNumber;
+    }
+
+    greet(): string {
+        return "Hello " + this.name + " " + this.studentNumber;
+    }
+}
+
+let student1  = new Student("John", 25, 12345);
+
+interface PersonInterface {
+    name: string;
+    age: number;
+    greet(): string;
+}
